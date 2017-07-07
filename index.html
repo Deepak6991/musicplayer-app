@@ -31,12 +31,22 @@
         <div> Duration </div>
         </div>
         <div class="song-list">
-        <div class="song">
+        <div class="song" id="song1">
         <span class="song-name"></span>
         <span class="song-artist"></span>
         <span class="song-album"></span>
-        <span class="song-length"></span>
+        <span class="song-length"></span> 
         </div>
+				<div class="song" id="song2">
+				<span  class="song-name"> </span>
+				</div>
+				<div class="song" id="song3">
+				<span  class="song-name"> </span>
+				</div>
+				<div class="song" id="song4">
+				<span  class="song-name"> </span>
+				</div>
+
         </div>
             </section>
             <footer>
@@ -58,6 +68,25 @@
     <script src="jquery.js">
     </script>
     <script>
+	
+	
+	function toggleSong() {
+					var song = document.querySelector('audio');
+					if(song.paused == true) {
+					console.log('Playing');
+					$('.play-icon').removeClass('fa-play').addClass('fa-pause');
+					song.play();
+					}
+					else {
+					console.log('Pausing');
+					$('.play-icon').removeClass('fa-pause').addClass('fa-play');
+					song.pause();
+					}
+					} 
+	
+	
+	
+	
 	
 	function fancyTimeFormat(time)
 {   
@@ -92,31 +121,83 @@
 }
 
 
-var songName = 'Tamma Song';
-window.onload = function() {
-$('.song-name').text(songName);
-updateCurrentTime();
-setInterval(function() {
-updateCurrentTime();
-},1000);
-}
-	
-	
-	
-	
-						function toggleSong() {
-					var song = document.querySelector('audio');
-					if(song.paused == true) {
-					console.log('Playing');
-					$('.play-icon').removeClass('fa-play').addClass('fa-pause');
-					song.play();
+
+			window.onload = function() {
+			updateCurrentTime();
+			setInterval(function() {
+			updateCurrentTime();
+			},1000);
+			//var songName1 = 'Tamma Song';
+			//var songName2 = 'Humma Song';
+			//var songName3 = 'Nashe Si Chadh Gayi';
+			//var songName4 = 'The Breakup Song';
+			var songList = ['Tumma song', 'Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
+			var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
+			
+			$('#song1 .song-name').text(songList[0]);
+			$('#song2 .song-name').text(songList[1]);
+			$('#song3 .song-name').text(songList[2]);
+			$('#song4 .song-name').text(songList[3]);
+			
+				$('#song1').click(function() {
+							var audio = document.querySelector('audio');
+							var currentSong = audio.src;
+							if(currentSong.search(fileNames[0]) != -1)
+							{
+							toggleSong();
+							}
+							else {
+							audio.src = fileNames[0];
+							toggleSong();
+							}
+							});
+					
+				$('#song2').click(function() {
+					var audio = document.querySelector('audio');
+					var currentSong = audio.src;
+					if(currentSong.search(fileNames[1]) != -1)
+					{
+					toggleSong();
 					}
 					else {
-					console.log('Pausing');
-					$('.play-icon').removeClass('fa-pause').addClass('fa-play');
-					song.pause();
+					    audio.src = fileNames[1];
+						toggleSong();
+						}
+					});
+
+			   $('#song3').click(function() {
+					var audio = document.querySelector('audio');
+					var currentSong = audio.src;
+					if(currentSong.search(fileNames[2]) != -1)
+					{
+					toggleSong();
 					}
-					} 
+					else {
+					    audio.src = fileNames[2];
+						toggleSong();
+						}
+					});
+
+			  $('#song4').click(function() {
+					var audio = document.querySelector('audio');
+					var currentSong = audio.src;
+					if(currentSong.search(fileNames[3]) != -1)
+					{
+					toggleSong();
+					}
+					else {
+					    audio.src = fileNames[3];
+						toggleSong();
+						}
+					});			
+					
+					
+			}
+	
+	
+	
+	
+						
 	
 	
 	
