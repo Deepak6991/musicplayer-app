@@ -107,6 +107,22 @@ var songs = [{
         'duration': '2:29',
         'fileName': 'song4.mp3',
 		'image': 'song4.jpg'
+    },
+    {
+        'name': 'The Breakup Song',
+        'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
+        'album': 'Ae Dil Hai Mushkil',
+        'duration': '2:29',
+        'fileName': 'song4.mp3',
+		'image': 'song4.jpg'
+    },
+    {
+        'name': 'The Breakup Song',
+        'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
+        'album': 'Ae Dil Hai Mushkil',
+        'duration': '2:29',
+        'fileName': 'song4.mp3',
+		'image': 'song4.jpg'
     }]
 			
 			for(var i =0; i < songs.length;i++) {
@@ -153,7 +169,9 @@ var songs = [{
 						//addSongNameClickEvent(fileNames[i],i+1)
 					//} 
 			$('#songs').DataTable({
-        paging: false
+        "scrollY":        "200px",
+        "scrollCollapse": true,
+        "paging":         false
     });					
 			}
 			

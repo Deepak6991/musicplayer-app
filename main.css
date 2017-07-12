@@ -192,6 +192,7 @@ h1 {
 /*DataTables overrides*/
 table.dataTable tbody tr {
     background-color: initial;
+	cursor:pointer;
 }
 #songs_info {
     display: none;
