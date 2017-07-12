@@ -1,3 +1,63 @@
+            var currentSongNumber = 1;
+var willLoop = 0;
+var willShuffle = 0; // will use this soon
+
+
+$('.fa-repeat').on('click',function() {
+    $('.fa-repeat').toggleClass('disabled')
+    willLoop = 1 - willLoop;
+}); 
+
+$('.fa-random').on('click',function() {
+    $('.fa-random').toggleClass('disabled')
+    willShuffle = 1 - willShuffle;
+});
+
+function timeJump() {
+    var song = document.querySelector('audio')
+    song.currentTime = song.duration - 5;
+}
+
+
+function randomExcluded(min, max, excluded) {
+    var n = Math.floor(Math.random() * (max-min) + min);
+    if (n >= excluded) n++;
+    return n;
+}
+
+$('audio').on('ended',function() {
+    var audio = document.querySelector('audio');
+    if (willShuffle == 1) {
+        var nextSongNumber = randomExcluded(1,6,currentSongNumber); // Calling our function from Stackoverflow
+        var nextSongObj = songs[nextSongNumber-1];
+        audio.src = nextSongObj.fileName;
+        toggleSong();
+        changeCurrentSongDetails(nextSongObj);
+        currentSongNumber = nextSongNumber;
+    }
+    else if(currentSongNumber < 6) {
+        var nextSongObj = songs[currentSongNumber];
+        audio.src = nextSongObj.fileName;
+        toggleSong();
+        changeCurrentSongDetails(nextSongObj);
+        currentSongNumber = currentSongNumber + 1;
+    }
+    else if(willLoop == 1) {
+        var nextSongObj = songs[0];
+        audio.src = nextSongObj.fileName;
+        toggleSong();
+        changeCurrentSongDetails(nextSongObj);
+        currentSongNumber =  1;
+    }
+    else {
+        $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+        audio.currentTime = 0;
+    }
+}) 
+   
+   
+   
+   
    // this function tell us how to change the icon form play to pause or pause to play
 	function toggleSong() {
 					var song = document.querySelector('audio');
@@ -109,19 +169,19 @@ var songs = [{
 		'image': 'song4.jpg'
     },
     {
-        'name': 'The Breakup Song',
+        'name': 'Sagar jaisi aankho wali',
         'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
         'album': 'Ae Dil Hai Mushkil',
         'duration': '2:29',
-        'fileName': 'song4.mp3',
+        'fileName': 'song5.mp3',
 		'image': 'song4.jpg'
     },
     {
-        'name': 'The Breakup Song',
+        'name': 'Dil',
         'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
         'album': 'Ae Dil Hai Mushkil',
         'duration': '2:29',
-        'fileName': 'song4.mp3',
+        'fileName': 'song6.mp3',
 		'image': 'song4.jpg'
     }]
 			
