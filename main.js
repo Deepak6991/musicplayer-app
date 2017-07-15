@@ -8,52 +8,52 @@ var willShuffle = 0;
 
    // array of objects
   var songs = [{
-        'name': ' Love The Way You Lie (Part 2) ft. Eminem',
-        'artist': ' Rihanna, Eminem',
-        'album': ' Loud',
-        'duration': '4:51',
+        'name': ' Badan Pe Sitaare unplugged',
+        'artist': 'Karan Nawani',
+        'album': 'retro unplugged',
+        'duration': '3:32',
        'fileName': 'song1.mp3',
        'image' : 'song1.jpg'
     },
     {
-        'name': 'Shape of You',
-        'artist': ' Ed Sheeran',
-        'album': ' รท',
-        'duration': '3:53',
+        'name': 'Pyaar Hota Ja Rha Hai',
+        'artist': ' Altaaf Saeed',
+        'album': ' unknown',
+        'duration': '2:38',
         'fileName': 'song2.mp3',
         'image' : 'song2.jpg'
     },
     {
-        'name': 'Heart Attack',
-        'artist': ' Enrique Iglesias',
-        'album': 'Sex and Love',
-        'duration': '2:50',
+        'name': 'Pehla Pehla Pyaar Hai',
+        'artist': 'S P Balasubrahmanyam',
+        'album': 'Hum Aapke Hai Kaun',
+        'duration': '4:24',
         'fileName': 'song3.mp3',
         'image' : 'song3.jpg'
     },
     {
-        'name': ' Stereo Love',
-        'artist': 'Edward Maya, Vika Jigulina',
-        'album': ' The Stereo Love Show',
-        'duration': '4:08',
+        'name': ' Mere Rashke Kamar',
+        'artist': 'unknown',
+        'album': ' unknown',
+        'duration': '3:09',
         'fileName': 'song4.mp3',
         'image' : 'song4.jpg'
     },
 	{
-        'name': 'jjkjk Stereo Love',
-        'artist': 'Edward Maya, Vika Jigulina',
-        'album': ' The Stereo Love Show',
-        'duration': '4:08',
+        'name': 'Musaafir',
+        'artist': 'atif aslam, Pala Mucchal',
+        'album': ' Sweeti Weds NRI',
+        'duration': '5:10',
         'fileName': 'song5.mp3',
-        'image' : 'song4.jpg'
+        'image' : 'song5.jpg'
     },
 	{
-        'name': ' hhvhvhStereo Love',
-        'artist': 'Edward Maya, Vika Jigulina',
-        'album': ' The Stereo Love Show',
-        'duration': '4:08',
+        'name': ' Meri Mehbooba',
+        'artist': 'Kumar Sanu',
+        'album': ' Pardesh',
+        'duration': '6:55',
         'fileName': 'song6.mp3',
-        'image' : 'song4.jpg'
+        'image' : 'song6.jpg'
     }]
 
 
