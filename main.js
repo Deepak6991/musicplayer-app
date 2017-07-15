@@ -406,6 +406,36 @@ $('.mute').on('click', function(){
 
 })
 
+$('.fa-step-forward').on('click', function() {
+							$('.fa-step-forward').toggleClass('disabled')			//play and pause next song by clicking the next song
+							console.log('nextsong');
+						var audio = document.querySelector('audio');
+						var nextSongobj = songs[currentSongNumber];
+						audio.src = nextSongobj.fileName;
+						toggleSong();
+						//console.log('nextsong');
+						changeCurrentNameDetails(nextSongobj);
+						currentSongNumber = currentSongNumber + 1;
+
+
+						});
+						
+						
+						
+						$('.fa-step-backward').on('click', function() {   			//play and pause the previous song
+							$('.fa-step-backward').toggleClass('disabled')
+
+
+						var audio = document.querySelector('audio');
+						var nextSongobj = songs[currentSongNumber];
+						audio.src = nextSongobj.fileName;
+						toggleSong();
+						changeCurrentNameDetails(nextSongobj);
+						currentSongNumber = currentSongNumber - 1;
+
+
+
+						});
 
 $('body').on('keypress', function(event) {
           //  console.log(event);
