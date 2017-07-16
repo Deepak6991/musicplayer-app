@@ -52,6 +52,7 @@ h1 {
 .main .content {
     flex:1;
     background-color: #1f1f1f;
+	height:700px;
 }
 
 .main footer {
@@ -456,4 +457,24 @@ bottom: 15px;
 .fa.disabled {
     color: gray;
 }
-    
+.audio-effects{
+	float:right;
+	position:relative;
+	margin-top:40px;
+	border:solid black 1px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+}
+#audio-effects1{
+	text-align:center;
+}
+#audio-effects2{
+	margin-bottom:10px;
+}
+.h{
+	margin-left:37px;
+}
+.f{
+	margin-left:38px;
+}

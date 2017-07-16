@@ -3,6 +3,9 @@ var chorus;
 var wahwah;
 var overdrive;
 var tremolo;
+var phaser;
+var cabinet;
+
 
 function tunaDemo(){
 
@@ -42,12 +45,37 @@ function tunaDemo(){
 
 		tremolo = new tuna.Tremolo({
 
-			intensity: 1,
+			intensity: 5,
 			rate: 8,
 			stereoPhase: 140,
 			bypass: 1
 
 		});
+	
+		
+		 chorus = new tuna.Chorus({
+    rate: 1.5,         //0.01 to 8+
+    feedback: 0.2,     //0 to 1+
+    delay: 0.0100,     //0 to 1
+    bypass: 1          //the value 1 starts the effect as bypassed, 0 or 1
+       });
+	   
+	   
+	   phaser = new tuna.Phaser({
+    rate: 1.2,                     //0.01 to 8 is a decent range, but higher values are possible
+    depth: 0.3,                    //0 to 1
+    feedback: 0.2,                 //0 to 1+
+    stereoPhase: 30,               //0 to 180
+    baseModulationFrequency: 700,  //500 to 1500
+    bypass: 1
+       });
+	   
+	  cabinet = new tuna.Cabinet({
+					makeupGain: 1,                                 //0 to 20
+					impulsePath: "impulses/impulse_guitar.wav",    //path to your speaker impulse
+					bypass: 1
+				});
+	   
 
 }
 
@@ -62,16 +90,25 @@ source.connect(wahwah.input);
 source.connect(tremolo.input);
 source.connect(overdrive.input);
 source.connect(delay.input);
+source.connect(chorus.input);
+source.connect(phaser.input);
+source.connect(cabinet.input);
 wahwah.connect(context.destination);
 delay.connect(context.destination);
 overdrive.connect(context.destination);
 tremolo.connect(context.destination);
+chorus.connect(context.destination);
+phaser.connect(context.destination);
+cabinet.connect(context.destination);
 
 
 var a = document.querySelector('.a');
 var b = document.querySelector('.b');
 var c = document.querySelector('.c');
 var d = document.querySelector('.d');
+var f = document.querySelector('.f');
+var g = document.querySelector('.g');
+var h = document.querySelector('.h');
 
 a.addEventListener('click',function(e){
 	console.log(this);
@@ -131,6 +168,52 @@ d.addEventListener('click',function(e){
 
 	else {
 		tremolo.bypass = 1;
+	}
+
+});
+
+
+f.addEventListener('click',function(e){
+	$(this).toggleClass("border");
+
+	if(chorus.bypass){
+
+		chorus.bypass = 0;
+
+	}
+
+	else {
+		chorus.bypass = 1;
+	}
+
+});
+
+g.addEventListener('click',function(e){
+	$(this).toggleClass("border");
+
+	if(phaser.bypass){
+
+		phaser.bypass = 0;
+
+	}
+
+	else {
+		phaser.bypass = 1;
+	}
+
+});
+
+h.addEventListener('click',function(e){
+	$(this).toggleClass("border");
+
+	if(cabinet.bypass){
+
+		cabinet.bypass = 0;
+
+	}
+
+	else {
+		cabinet.bypass = 1;
 	}
 
 });
