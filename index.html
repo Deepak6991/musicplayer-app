@@ -7,31 +7,34 @@
     <link rel="stylesheet" type="text/css" href="font-awesome.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 </head>
 
 <body>
     <div class="wrapper">
-        <section class="welcome-screen  ">
-            <h1> Welcome to Songify </h1>
-            <h3> Enter name to access your account </h3>
-            <div class="input-wrapper">
+        <section class="welcome-screen ">
+		        <p id="music">MUSIC THE FEELING</P>
+            <h1 id="welcome-user" class="music1"> Welcome to Songify </h1>
+            <h3 id="welcome-user" class="music1"> Enter name to enjoy the muxic..!</h3>
+            <div class="input-wrapper music1">
                 <input type="text" placeholder="Name" id="name-input">
-                <button> Go </button>
+                <button id="name-input"> Go </button>
             </div>
         </section>
-              <div class="main hidden ">
+              <div class="main hidden  ">
                   <header>
-                      <div class="right floated user-name"> </div>
+				  <span id="the">feel the </span><span id="musicc"> MUSIC</span> 
+                      <div class="right floated user-name" id="user-namee"> </div>
                   </header>
                   <section class="content">
                       <audio src="song1.mp3"></audio>
 
                       <table id="songs">
                        <thead class="list-headers">
-                             <td> Title </td>
-                             <td> Artist </td>
-                             <td> Album </td>
-                             <td> Duration </td>
+                             <td><b> Title</b> </td>
+                             <td><b> Artist</b> </td>
+                             <td><b> Album </b></td>
+                             <td> <b>Duration </b></td>
                        </thead>
                        <!-- <div class="song-list"> -->
                        <tbody>
@@ -71,6 +74,30 @@
                    				<td class="song-album"></td>
                    				<td class="song-length"></td>
                        </tr>
+					    <tr class="song"  id="song7">
+                   				<td class="song-name"></td>
+                   			  <td class="song-artist"></td>
+                   				<td class="song-album"></td>
+                   				<td class="song-length"></td>
+                       </tr>
+					    <tr class="song"  id="song8">
+                   				<td class="song-name"></td>
+                   			  <td class="song-artist"></td>
+                   				<td class="song-album"></td>
+                   				<td class="song-length"></td>
+                       </tr>
+					    <tr class="song"  id="song9">
+                   				<td class="song-name"></td>
+                   			  <td class="song-artist"></td>
+                   				<td class="song-album"></td>
+                   				<td class="song-length"></td>
+                       </tr>
+					    <tr class="song"  id="song10">
+                   				<td class="song-name"></td>
+                   			  <td class="song-artist"></td>
+                   				<td class="song-album"></td>
+                   				<td class="song-length"></td>
+                       </tr>
                      </tbody>
                            <!-- </div> -->
                    </table>
@@ -86,16 +113,16 @@
 						  
 						  
 						  <div class="audio-effects">
-						  <p id="audio-effects1"> audio effects</p>
-						  <button class="chorus a">wahwah</button>
-						  <button class="delay b a">delay</button>
-						  <button class="phaser a c">overdrive</button>
-						  <button class="tremoloa d">tremolo</button><br>
+						  <p id="audio-effects1"> AUDIO EFFECTS</p>
+						  <button class="chorus a" id="effects1">wahwah</button>
+						  <button class="delay b a" id="effects1">delay</button>
+						  <button class="phaser a c" id="effects1">overdrive</button>
+						  <button class="tremoloa d" id="effects1">tremolo</button><br>
 						  <p id="audio-effects2">
-						  <button class="phaser g">phaser</button>
-						  <button class="chorus f">chorus</button>
+						  <button class="phaser g" id="effects1">phaser</button>
+						  <button class="chorus f" id="effects1">chorus</button>
 						  
-						  <button class="cabinet h">cabinet</button></p>
+						  <button class="cabinet h" id="effects1">cabinet</button></p>
 						  </div>
 						  
             </section>

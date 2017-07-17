@@ -6,7 +6,7 @@ var willShuffle = 0;
 
 
 
-   // array of objects
+   // array of objects---(songs details)
   var songs = [{
         'name': ' Badan Pe Sitaare unplugged',
         'artist': 'Karan Nawani',
@@ -54,10 +54,34 @@ var willShuffle = 0;
         'duration': '6:55',
         'fileName': 'song6.mp3',
         'image' : 'song6.jpg'
+    },
+	{
+        'name': ' Toca Toca',
+        'artist': 'Fly Project',
+        'album': ' UNknown',
+        'duration': '2:45',
+        'fileName': 'song7.mp3',
+        'image' : 'song7.jpg'
+    },
+	{
+        'name': ' Love Me Like You Do',
+        'artist': 'Ellie Goulding',
+        'album': ' Fifty Shades of Grey',
+        'duration': '4:09',
+        'fileName': 'song8.mp3',
+        'image' : 'song8.jpg'
+    },
+	{
+        'name': ' Despacito',
+        'artist': 'Luis Fonsi , Daddy Yankee',
+        'album': ' Pardesh',
+        'duration': '3:47',
+        'fileName': 'song9.mp3',
+        'image' : 'song9.jpg'
     }]
 
 
-<!------------------------------------------------- toggle song  ---------------------------------------------------->
+//-----------------------------------------------------------toggle song  
 function toggleSong() {
   var song = document.querySelector('audio');
   if(song.paused == true) {
@@ -75,12 +99,12 @@ function toggleSong() {
 
 function fancyTimeFormat(time)
 {
-// Hours, minutes and seconds
+//variable for hours minutes and seconds
 var hrs = ~~(time / 3600);
 var mins = ~~((time % 3600) / 60);
 var secs = time % 60;
 
-// Output like "1:01" or "4:03:59" or "123:03:59"
+// function for show the time in minute and seconds
 var ret = "";
 
 if (hrs > 0) {
@@ -108,17 +132,8 @@ function updateCurrentTime() {
   }
 
 
-/*  function updateProgress() {
-   var progress = document.getElementById("progress-filled");
-   var value = 0;
-   var audio = document.querySelector('audio');
-   if (audio.currentTime > 0) {
 
-      value = Math.floor((100 / audio.duration) * audio.currentTime);
-   }
-   progress.style.width = value + "%";
-} */
-
+//fetch the songs name image nd album from array of objects
 
   function changeCurrentNameDetails(songObj){
     $('.current-song-image').attr('src', 'img/' + songObj.image);
@@ -156,7 +171,7 @@ var song = document.querySelector('audio');
 var ct =song.currentTime;
 var td =song.duration;
 var percentage = (ct/td)*100;
-$("#progress-filled").css('width',percentage+"%");
+$("#progress-filled").css('width',percentage+"%");  //function for progress slider
 
 }
 
@@ -174,9 +189,11 @@ function randomExcluded(min, max, excluded) {
 
 
 
-/*---------------------------------------------- WINDOW ON LOAD ----------------------------------------------*/
 
-  window.onload = function() {
+//functions for onload window
+
+
+  window.onload = function() {                      
 
 
 	//console.log(document.querySelector);
@@ -201,14 +218,14 @@ function randomExcluded(min, max, excluded) {
   //   $('#song4 .song-artist').text(artistList[3]);
 
   // for(var i =0; i < songList.length;i++) {
-  //      var name = '#song' + (i+1);  // for i=0, name = #song1
+  //      var name = '#song' + (i+1);  
   //      var song = $(name);  //song =  $(#song1)
   //      song.find('.song-name').text(songList[i]);
   //      song.find('.song-artist').text(artistList[i]);
-  //      song.find('.song-album').text(albumList[i]); // Added
-  //       song.find('.song-length').text(durationList[i]); // Added
+  //      song.find('.song-album').text(albumList[i]);  
+  //       song.find('.song-length').text(durationList[i]);  
   //  }
-    // always display the name and image oof the first song whenever windows load
+    
     changeCurrentNameDetails(songs[0]);
 
    for(var i =0; i < songs.length;i++) {
@@ -227,23 +244,23 @@ function randomExcluded(min, max, excluded) {
           var audio = document.querySelector('audio');
 
          if (willShuffle == 1) {
-                  var nextSongNumber = randomExcluded(1,4,currentSongNumber); // Calling our function from Stackoverflow
+                  var nextSongNumber = randomExcluded(1,9,currentSongNumber); // Stackoverflow function (for shuffling the song)
                   var nextSongObj = songs[nextSongNumber-1];
                   audio.src = nextSongObj.fileName;
-                  toggleSong();
+                  toggleSong();                                       
                   changeCurrentNameDetails(nextSongObj);
                   currentSongNumber = nextSongNumber;
               }
-         else if(currentSongNumber < 4) {
-                 // Play the next song
+         else if(currentSongNumber < 9) {
+                 
                   var nextSongObj = songs[currentSongNumber];
                   audio.src = nextSongObj.fileName; // Change Soure
-                  toggleSong(); // Play Next Song
-                  changeCurrentNameDetails(nextSongObj); // Update Image
-                  currentSongNumber = currentSongNumber + 1; // Change State
+                  toggleSong(); // 
+                  changeCurrentNameDetails(nextSongObj); // 
+                  currentSongNumber = currentSongNumber + 1; // Change the song
              }
            else if(willLoop == 1) {
-                          // Play first song now
+                          // 
                           var nextSongObj = songs[0];
                           audio.src = nextSongObj.fileName;
                           toggleSong();
@@ -323,12 +340,17 @@ function randomExcluded(min, max, excluded) {
   setInterval(function() {
   updateCurrentTime();
   },1000);
+  
+  
+//datatable function (for search purpose and also for scroll bar 
 
   $('#songs').DataTable({
            "scrollY":        "200px",
         "scrollCollapse": true,
         "paging":         false
        });
+	   
+	   
 
     setInterval(function() {
         updateTimer();
@@ -338,12 +360,12 @@ function randomExcluded(min, max, excluded) {
   }
 
 
-
+//funtion for first page that is welcome screen
 
 $('.welcome-screen button').on('click', function() {
     var name = $('#name-input').val();
     if (name.length > 2) {
-        var message = "Welcome, " + name;
+        var message = "Welcome, " + name; //show the user name with welcome message
         $('.main .user-name').text(message);
         $('.welcome-screen').addClass('hidden');
         $('.main').removeClass('hidden');
@@ -351,6 +373,10 @@ $('.welcome-screen button').on('click', function() {
         $('#name-input').addClass('error');
     }
 });
+
+
+
+
 $('.play-icon').on('click', function() {
    toggleSong();
 });
@@ -406,23 +432,26 @@ $('.mute').on('click', function(){
 
 })
 
+
+//function for next button
+
 $('.fa-step-forward').on('click', function() {
-							$('.fa-step-forward').toggleClass('disabled')			//play and pause next song by clicking the next song
+							$('.fa-step-forward').toggleClass('disabled')			
 							console.log('nextsong');
 						var audio = document.querySelector('audio');
 						var nextSongobj = songs[currentSongNumber];
 						audio.src = nextSongobj.fileName;
 						toggleSong();
-						//console.log('nextsong');
+					
 						changeCurrentNameDetails(nextSongobj);
 						currentSongNumber = currentSongNumber + 1;
 
 
 						});
 						
+						//function for previous button
 						
-						
-						$('.fa-step-backward').on('click', function() {   			//play and pause the previous song
+						$('.fa-step-backward').on('click', function() {   			
 							$('.fa-step-backward').toggleClass('disabled')
 
 
@@ -437,6 +466,8 @@ $('.fa-step-forward').on('click', function() {
 
 						});
 
+						//function for spacebar (when press spacebar song is play and pause)
+						
 $('body').on('keypress', function(event) {
           //  console.log(event);
           var target = event.target;

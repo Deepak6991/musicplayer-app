@@ -31,6 +31,8 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+	background-color:black;
+	background-size:cover;
 }
 
 .main {
@@ -78,12 +80,13 @@ table.dataTable tbody tr:hover {
    color: transparent;
 }
 #songs_filter input {
-   width: 300px;
+   width: 250px;
    margin-bottom: 1rem;
    font-size: 16px;
-   border-radius: 50px;
+   border-radius: 20px;
+   border-color:white;
+   
 }
-
 .player-buttons {
     display:flex;
     font-size: 1.5rem;
@@ -96,8 +99,8 @@ table.dataTable tbody tr:hover {
 
 .volume {
   position:absolute;
-  left:68%;
-  top:600px;
+  left:58%;
+  top:612px;
 }
 .fa-volume-up {
   margin-left: 1rem;
@@ -223,6 +226,10 @@ table.dataTable tbody tr:hover {
     height: 100px;
     width: 100px;
     margin-right: 1rem;
+}
+img.current-song-image{
+	height:115px;
+	width:115px;
 }
 
 .current-song-name {
@@ -468,9 +475,11 @@ bottom: 15px;
 }
 #audio-effects1{
 	text-align:center;
+	font-family: 'Indie Flower', cursive;
 }
 #audio-effects2{
 	margin-bottom:10px;
+	
 }
 .h{
 	margin-left:37px;
@@ -478,3 +487,55 @@ bottom: 15px;
 .f{
 	margin-left:38px;
 }
+#welcome-user{
+	color:white;
+	font-family: 'Indie Flower', cursive;
+}
+#music{
+	color:white;
+	position:relative;
+	top:-140px;
+	font-size:60px;
+}
+.music1{
+	position:relative;
+	top:-55px;
+}
+#name-input{
+	border-radius:5px;
+	height:30px;
+	background-color:black;
+	color:white;
+}
+#user-namee{
+	font-family: 'Indie Flower', cursive;
+	font-size:20px;
+}
+#effects1{
+	cursor:pointer;
+}
+#songs_filter input{
+	width:250px;
+	border-radius:10px;
+	height:25px;
+	font-size:15px;
+}
+
+label{
+color:white;
+font-size:15px;
+font-family: 'Indie Flower', cursive;
+}
+.list-headers {
+	font-size:20px;
+}
+#the{
+	font-size:20px;
+	font-family: 'Indie Flower', cursive;
+}
+#musicc{
+	font-size:22px;
+	
+	font-family: 'Anton', sans-serif;
+}
+	
