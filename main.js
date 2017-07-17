@@ -370,7 +370,7 @@ $('.welcome-screen button').on('click', function() {
         $('.welcome-screen').addClass('hidden');
         $('.main').removeClass('hidden');
     } else {
-        $('#name-input').addClass('error');
+        Warn();
     }
 });
 
@@ -476,3 +476,9 @@ $('body').on('keypress', function(event) {
           toggleSong();
           }
         });
+
+		
+		function Warn() {
+               alert ("enter name more than 2 alphabet!");
+              // document.write ("This is a warning message!");
+            }
