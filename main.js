@@ -364,7 +364,7 @@ function randomExcluded(min, max, excluded) {
 
 $('.welcome-screen button').on('click', function() {
     var name = $('#name-input').val();
-    if (name.length > 2) {
+    if (name.length > 3) {
         var message = "Welcome, " + name; //show the user name with welcome message
         $('.main .user-name').text(message);
         $('.welcome-screen').addClass('hidden');
