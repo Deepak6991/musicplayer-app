@@ -1,10 +1,10 @@
-var delay;
-var chorus;
-var wahwah;
-var overdrive;
-var tremolo;
-var phaser;
-var cabinet;
+var delay;  /*variable for delay*/
+var chorus; /*variable for chorous*/
+var wahwah; /*variable for wahwah*/
+var overdrive;  /*variable for overdrive*/
+var tremolo; /*variable for tremolo*/
+var phaser; /*variable for phaser*/
+var cabinet; /*variable for cabinet*/
 
 
 function tunaDemo(){

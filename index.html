@@ -12,7 +12,7 @@
 
 <body>
   <div class="wrapper">
-    <section class="welcome-screen ">
+    <section class="welcome-screen ">  <!--welcome screen-->
 		   <p id="music">MUSIC THE FEELING</P>
            <h1 id="welcome-user" class="music1"> Welcome to Songify </h1>
            <h3 id="welcome-user" class="music1"> Enter name to enjoy the muxic..!</h3>
@@ -22,7 +22,7 @@
          </div>
     </section>
 	
-   <div class="main hidden  ">
+   <div class="main hidden  "> <!----music player page----(when welcome screen hidden it shows-->
       <header>
 	        <span id="the">feel the </span><span id="musicc"> MUSIC</span> 
             <div class="right floated user-name" id="user-namee"> </div>
@@ -37,7 +37,7 @@
                              <td><b> Album </b></td>
                              <td> <b>Duration </b></td>
                        </thead>
-                       <!-- <div class="song-list"> -->
+                                                             <!-- <div class="song-list"> -->
                        <tbody>
                				<tr class="song"  id="song1">
                    				<td class="song-name"></td>
@@ -113,7 +113,8 @@
 						  
 						  
 						  
-					<div class="audio-effects">
+					<div class="audio-effects"> <!----button for different audio effects-->
+					
 						  <p id="audio-effects1"> AUDIO EFFECTS</p>
 							  <button class="chorus a" id="effects1">wahwah</button>
 							  <button class="delay b a" id="effects1">delay</button>
@@ -133,21 +134,21 @@
             <footer>
                 <div class="controls">
                     <div class="player-buttons">
-                        <i class="fa fa-random clickable disabled" aria-hidden="true"></i>
-                        <i class="fa fa-step-backward clickable" aria-hidden="true"></i>
-                        <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
-                        <i class="fa fa-step-forward clickable" aria-hidden="true"></i>
-                        <i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>
+                        <i class="fa fa-random clickable disabled" aria-hidden="true"></i>  <!--random icon-->
+                        <i class="fa fa-step-backward clickable" aria-hidden="true"></i>   <!--previous button  icon-->
+                        <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>  <!--pause and play button  icon-->
+                        <i class="fa fa-step-forward clickable" aria-hidden="true"></i>     <!--next button  icon-->
+                        <i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>   <!--repeat icon-->
 				    </div>
                     <div class="progress-wrapper">
                         <span class="time-elapsed"> </span>
-                       <div class="player-progress">
-                            <div id="progress-filled"> </div>
+                       <div class="player-progress">   
+                            <div id="progress-filled"> </div>    <!---div for progress bar to show the current song time  using slider--->
                        </div>
                         <span class="song-duration"></span>
                        <div class="volume">
                         <i class="fa fa-volume-up clickable mute" aria-hidden="true" ></i>
-                        <input id="vol-up-down" type="range" min="0" max="100" value="100" step="1"  class="hidden"></input>
+                        <input id="vol-up-down" type="range" min="0" max="100" value="100" step="1"  class="hidden"></input>  <!---volume slider for increas-->
                        </div>
                     </div>
 

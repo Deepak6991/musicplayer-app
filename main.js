@@ -198,37 +198,6 @@ function randomExcluded(min, max, excluded) {
 
   window.onload = function() {                      
 
-
-	//console.log(document.querySelector);
-  //  var songName1 = 'Tamma Song';
-  //  var songName2 = 'Humma Song';
-  // var songName3 = 'Nashe Si Chadh Gayi';
-  // var songName4 = 'The Breakup Song';
-  //
-  // var songList = ['Tamma Song', 'Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
-  // var artistList = [' Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi','Badshah, Jubin Nautiyal, Shashaa Tirupati','Arijit Singh','Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi'];
-  // var albumList = ['Badrinath ki Dulhania','Ok Jaanu','Befikre','Ae Dil Hai Mushkil'];
-  // var durationList = ['2:56','3:15','2:34','2:29'];
-
-
-  //  $('#song1 .song-name').text(songList[0]);
-  //   $('#song2 .song-name').text(songList[1]);
-  //    $('#song3 .song-name').text(songList[2]);
-  //     $('#song4 .song-name').text(songList[3]);
-  //     $('#song1 .song-artist').text(artistList[0]);
-  //   $('#song2 .song-artist').text(artistList[1]);
-  //   $('#song3 .song-artist').text(artistList[2]);
-  //   $('#song4 .song-artist').text(artistList[3]);
-
-  // for(var i =0; i < songList.length;i++) {
-  //      var name = '#song' + (i+1);  
-  //      var song = $(name);  //song =  $(#song1)
-  //      song.find('.song-name').text(songList[i]);
-  //      song.find('.song-artist').text(artistList[i]);
-  //      song.find('.song-album').text(albumList[i]);  
-  //       song.find('.song-length').text(durationList[i]);  
-  //  }
-    
     changeCurrentNameDetails(songs[0]);
 
    for(var i =0; i < songs.length;i++) {
@@ -508,3 +477,7 @@ $('body').on('keypress', function(event) {
                alert ("enter name more than 2 character!");
               // document.write ("This is a warning message!");
             }
+			
+			
+			//$("#name-input").keypress(function(event){
+				
