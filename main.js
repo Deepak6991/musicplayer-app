@@ -2,7 +2,10 @@
 var currentSongNumber = 1;
 var willLoop = 0;
 var willShuffle = 0;
-	var mute = 0;
+var mute = 0;
+var songplay = 0;
+var shuffle=0;
+var equal = 0;
 
 
 
@@ -88,13 +91,13 @@ function toggleSong() {
   //console.log('Playing');
   $('.play-icon').removeClass('fa-play').addClass('fa-pause');
   song.play();
-  }
+                          }
   else {
   //console.log('Pausing');
   $('.play-icon').removeClass('fa-pause').addClass('fa-play');
   song.pause();
-  }
-  }
+       }
+                        }
 
 
 function fancyTimeFormat(time)
@@ -175,7 +178,7 @@ $("#progress-filled").css('width',percentage+"%");  //function for progress slid
 
 }
 
-// function to make the song end soon, just for checking our loop and shuffle
+// function for song end , to check our loop and shuffle
 function timeJump()  {
   var song = document.querySelector('audio');
   song.currentTime = song.duration-5;
@@ -243,34 +246,34 @@ function randomExcluded(min, max, excluded) {
      $('audio').on('ended',function() {
           var audio = document.querySelector('audio');
 
-         if (willShuffle == 1) {
+          if (willShuffle == 1) {
                   var nextSongNumber = randomExcluded(1,9,currentSongNumber); // Stackoverflow function (for shuffling the song)
                   var nextSongObj = songs[nextSongNumber-1];
                   audio.src = nextSongObj.fileName;
                   toggleSong();                                       
                   changeCurrentNameDetails(nextSongObj);
                   currentSongNumber = nextSongNumber;
-              }
-         else if(currentSongNumber < 9) {
+                                  }
+          else if(currentSongNumber < 9) {
                  
                   var nextSongObj = songs[currentSongNumber];
                   audio.src = nextSongObj.fileName; // Change Soure
                   toggleSong(); // 
                   changeCurrentNameDetails(nextSongObj); // 
                   currentSongNumber = currentSongNumber + 1; // Change the song
-             }
-           else if(willLoop == 1) {
+                                           }
+          else if(willLoop == 1) {
                           // 
                           var nextSongObj = songs[0];
                           audio.src = nextSongObj.fileName;
                           toggleSong();
                           changeCurrentNameDetails(nextSongObj);
                           currentSongNumber =  1;
-                        }
-            else {
+                                  }
+         else {
                          $('.play-icon').removeClass('fa-pause').addClass('fa-play');
                           audio.currentTime = 0;
-                    }
+              }
      })
     //var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
     // addSongNameClickEvent(fileNames[0],1);
@@ -433,38 +436,61 @@ $('.mute').on('click', function(){
 })
 
 
+function changeSong() 
+{
+var music =  songs[songplay].fileName;
+var song = document.querySelector("audio");
+song.src = music;
+toggleSong();
+changeCurrentNameDetails(songs[songplay])
+}
+
+
+
+
 //function for next button
 
-$('.fa-step-forward').on('click', function() {
-							$('.fa-step-forward').toggleClass('disabled')			
-							console.log('nextsong');
-						var audio = document.querySelector('audio');
-						var nextSongobj = songs[currentSongNumber];
-						audio.src = nextSongobj.fileName;
-						toggleSong();
-					
-						changeCurrentNameDetails(nextSongobj);
-						currentSongNumber = currentSongNumber + 1;
+$(".fa-step-forward").click(function(){
+
+if(shuffle==1)
+{
+var audio = document.querySelector('audio');
+var nextSongNumber = randomExcluded(0,3,songplay); // Calling our function from Stackoverflow
+var nextSongObj = songs[nextSongNumber];
+audio.src = nextSongobj.fileName;
+toggleSong();
+changeCurrentNameDetails(nextSongobj);
+songplay = nextSongNumber;
+}
+else {
+if(songplay == songs.length-1){
+songplay = 0;
+changeSong();
+}
+
+else {
+console.log("two");
+console.log(songplay);
+songplay++;
+changeSong();
+}
+}
+})
 
 
-						});
-						
-						//function for previous button
-						
-						$('.fa-step-backward').on('click', function() {   			
-							$('.fa-step-backward').toggleClass('disabled')
-
-
-						var audio = document.querySelector('audio');
-						var nextSongobj = songs[currentSongNumber];
-						audio.src = nextSongobj.fileName;
-						toggleSong();
-						changeCurrentNameDetails(nextSongobj);
-						currentSongNumber = currentSongNumber - 1;
-
-
-
-						});
+$(".fa-step-backward").click(function(){
+if(songplay == 0){
+console.log("one");
+songplay = (songs.length-1);
+changeSong();
+}
+else {
+console.log("two");
+console.log(songplay);
+songplay--;
+changeSong();
+}
+})
 
 						//function for spacebar (when press spacebar song is play and pause)
 						
@@ -479,6 +505,6 @@ $('body').on('keypress', function(event) {
 
 		
 		function Warn() {
-               alert ("enter name more than 2 alphabet!");
+               alert ("enter name more than 2 character!");
               // document.write ("This is a warning message!");
             }
